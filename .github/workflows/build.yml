@@ -10,7 +10,6 @@ on:
 
     branches: [ master ]
 
-
  
 
 jobs:
@@ -31,13 +30,13 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
  
 
       - name: Setup Node.js
 
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
 
         with:
 
@@ -51,9 +50,23 @@ jobs:
 
  
 
-      - name: Build
+      - name: Build Windows
 
-        run: npm run build
+        if: matrix.os == 'windows-latest'
+
+        run: npm run build:win
+
+        env:
+
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+ 
+
+      - name: Build macOS
+
+        if: matrix.os == 'macos-latest'
+
+        run: npm run build:mac
 
         env:
 
@@ -63,16 +76,10 @@ jobs:
 
       - name: Upload artifacts
 
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
 
         with:
 
           name: ${{ matrix.os }}-build
 
-          path: |
-
-            dist/*.exe
-
-            dist/*.dmg
-
-            dist/*.zip
+          path: dist
