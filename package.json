@@ -10,54 +10,57 @@
 
   "scripts": {
 
-      "start": "electron .",
+        "start": "electron .",
 
-      "build": "electron-builder -m",
+        "build:win": "electron-builder --win",
 
-      "build-mac": "electron-builder --mac --dir"
+        "build:mac": "electron-builder --mac --dir",
+
+        "build": "electron-builder -mw"
+
+    },
+
+    "build": {
+
+        "appId": "com.choreapp_anna",
+
+        "files": [
+
+            "choremain_anna.js",
+
+            "choreindex_anna.html",
+
+            "renderer.js",
+
+            "annaphotos/**/*",
+
+            "100/**/*",
+
+            "*.gif",
+
+            "*.jpg",
+
+            "*.png"
+
+        ],
+
+        "mac": {
+
+            "target": ["dir", "dmg"],
+
+            "category": "public.app-category.utilities"
+
+        },
+
+        "win": {
+
+            "target": "portable"
+
+        }
+
+    },
 
 
-  },
-
-  "build": {
-
-      "appId": "com.choreapp_anna",
-
-      "files": [
-
-          "choremain_anna.js",
-
-          "choreindex_anna.html",
-
-          "renderer.js",
-
-          "annaphotos/**/*",
-
-          "100/**/*",
-
-          "*.gif",
-
-          "*.jpg",
-
-          "*.png"
-
-      ],
-
-      "mac": {
-
-          "category": "public.app-category.utilities",
-
-          "target": ["dmg", "zip"]
-
-      },
-
-      "win": {
-
-          "target": "portable"
-
-      }
-
-  },
 
   "keywords": [],
 
