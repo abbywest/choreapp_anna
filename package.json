@@ -1,0 +1,82 @@
+{
+
+  "name": "choreapp_anna",
+
+  "version": "1.0.0",
+
+  "description": "",
+
+  "main": "./choremain_anna.js",
+
+  "scripts": {
+
+      "start": "electron .",
+
+      "build": "electron-builder -m",
+
+      "build-mac": "electron-builder --mac --dir"
+
+
+  },
+
+  "build": {
+
+      "appId": "com.choreapp_anna",
+
+      "files": [
+
+          "choremain_anna.js",
+
+          "choreindex_anna.html",
+
+          "renderer.js",
+
+          "annaphotos/**/*",
+
+          "100/**/*",
+
+          "*.gif",
+
+          "*.jpg",
+
+          "*.png"
+
+      ],
+
+      "mac": {
+
+          "category": "public.app-category.utilities",
+
+          "target": ["dmg", "zip"]
+
+      },
+
+      "win": {
+
+          "target": "portable"
+
+      }
+
+  },
+
+  "keywords": [],
+
+  "author": "",
+
+  "license": "ISC",
+
+  "devDependencies": {
+
+      "electron": "^28.3.3",
+
+      "electron-builder": "^24.9.1"
+
+  },
+
+  "dependencies": {
+
+      "@electron/remote": "^2.1.2"
+
+  }
+
+}
