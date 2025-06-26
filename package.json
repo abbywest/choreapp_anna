@@ -10,55 +10,69 @@
 
   "scripts": {
 
-        "start": "electron .",
+    "start": "electron .",
 
-        "build:win": "electron-builder --win",
+    "build:win": "electron-builder --win",
 
-        "build:mac": "electron-builder --mac --dir",
+    "build:mac": "electron-builder --mac",
 
-        "build": "electron-builder -mw"
+    "build": "electron-builder -mw"
 
-    },
+},
 
     "build": {
 
-        "appId": "com.choreapp_anna",
+    "appId": "com.choreapp_anna",
 
-        "files": [
+    "files": [
 
-            "choremain_anna.js",
+        "choremain_anna.js",
 
-            "choreindex_anna.html",
+        "choreindex_anna.html",
 
-            "renderer.js",
+        "renderer.js",
 
-            "annaphotos/**/*",
+        "annaphotos/**/*",
 
-            "100/**/*",
+        "100/**/*",
 
-            "*.gif",
+        "*.gif",
 
-            "*.jpg",
+        "*.jpg",
 
-            "*.png"
+        "*.png"
+
+    ],
+
+    "mac": {
+
+        "target": [
+
+            {
+
+                "target": "zip",
+
+                "arch": ["x64", "arm64"]
+
+            }
 
         ],
 
-        "mac": {
+        "category": "public.app-category.utilities",
 
-            "target": ["dir", "dmg"],
+        "hardenedRuntime": true,
 
-            "category": "public.app-category.utilities"
-
-        },
-
-        "win": {
-
-            "target": "portable"
-
-        }
+        "gatekeeperAssess": false
 
     },
+
+    "win": {
+
+        "target": "portable"
+
+    }
+
+},
 
 
 
